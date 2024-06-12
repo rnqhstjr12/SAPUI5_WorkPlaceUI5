@@ -22,7 +22,7 @@
                   "parameters": {},
                   "additionalParameters": "allowed"
               },
-              "semanticObject": "WorkPlaceUI5",
+              "semanticObject": "project1",
               "action": "display",
               "title": "WorkPlaceUI5",
               "icon": "sap-icon://map"
@@ -47,18 +47,25 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.120.14",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
         "sap.f": {},
+        "sap.tnt": {},
         "sap.suite.ui.generic.template": {},
         "sap.ui.comp": {},
         "sap.ui.generic.app": {},
         "sap.ui.table": {},
         "sap.ushell": {}
+      }
+    },
+    "componentUsages": {
+      "workpageBuilderComponent": {
+        "name": "sap.ushell.components.workPageBuilder",
+        "lazy": true
       }
     },
     "contentDensities": {
@@ -71,6 +78,9 @@
         "settings": {
           "bundleName": "project1.i18n.i18n"
         }
+      },
+      "": {
+        "type": "sap.ui.model.json.JSONModel"
       }
     },
     "resources": {

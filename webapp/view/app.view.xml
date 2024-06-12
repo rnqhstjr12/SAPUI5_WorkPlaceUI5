@@ -1,7 +1,38 @@
-<mvc:View controllerName="project1.controller.app"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-        <content />
+<mvc:View 
+    controllerName="project1.controller.app"
+    xmlns="sap.m" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:dnd="sap.ui.core.dnd" 
+    xmlns:cep="sap.ushell.components.workPageBuilder.controls" 
+    xmlns:core="sap.ui.core" 
+    core:require="{        
+        coreLibrary: 'sap/ui/core/library'    
+    }" 
+    id="workPageBuilder" 
+    height="100%">
+    <Page
+        id="workpagesBuilder"
+        enableScrolling="false"
+        showHeader="true">
+        <headerContent>
+            <OverflowToolbar>
+                <Label text="Edit Mode"/>
+                <Switch change=".toggleEditMode" state="false"/>
+                <Label text="Preview Mode"/>
+                <Switch change=".togglePreviewMode" state="false"/>
+                <Label text="Show Page Title" />
+                <Switch change=".togglePageTitle" state="true"/>
+                <Label text="Toggle Footer"/>
+                <Switch change=".toggleFooter" state="false" id="toggleFooter" enabled="false"/>
+                <Button text="DataCheck" press="onDataCheck"/>
+            </OverflowToolbar>
+        </headerContent>
+
+        <core:ComponentContainer
+            height="100%"
+            usage="workpageBuilderComponent"
+            manifest="true"
+            componentCreated=".workPageBuilderComponentCreated"
+            async="true"/>
     </Page>
 </mvc:View>
