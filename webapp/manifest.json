@@ -52,9 +52,9 @@
       "minUI5Version": "1.120.14",
       "libs": {
         "sap.m": {},
-        "sap.ui.core": {},
         "sap.f": {},
         "sap.tnt": {},
+        "sap.ui.core": {},
         "sap.suite.ui.generic.template": {},
         "sap.ui.comp": {},
         "sap.ui.generic.app": {},

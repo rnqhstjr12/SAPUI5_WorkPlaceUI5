@@ -1,0 +1,7 @@
+/*!
+ * OpenUI5
+ * (c) Copyright 2009-2024 SAP SE or an SAP affiliate company.
+ * Licensed under the Apache License, Version 2.0 - see LICENSE.txt.
+ */
+sap.ui.define(["sap/ui/core/Renderer","sap/ui/integration/library"],function(e,t){"use strict";var n=t.CardPreviewMode;var a=e.extend("sap.ui.integration.cards.BaseContentRenderer",{apiVersion:2});a.DEFAULT_MIN_HEIGHT="5rem";a.render=function(e,t){var a="sapFCard",i=t.getMetadata().getName(),r=i.slice(i.lastIndexOf(".")+1),s=t.getCardInstance(),o=t.isLoading(),g=s&&s.getPreviewMode()===n.Abstract,d=t.getAggregation("_messageContainer"),c=t.getAggregation("_blockingMessage");a+=r;e.openStart("div",t).class(a).class("sapFCardBaseContent");if(t.isInteractive()){e.class("sapFCardSectionClickable")}if(s&&s.getHeight()==="auto"){var l=this.getMinHeight(t.getParsedConfiguration(),t,s);e.style("min-height",l)}if(o||g){e.class("sapFCardContentLoading")}e.openEnd();if(o||g){e.renderControl(t.getAggregation("_loadingPlaceholder"))}if(d){e.renderControl(d)}if(c){e.renderControl(c)}else{this.renderContent(e,t)}e.close("div")};a.renderContent=function(e,t){e.renderControl(t.getAggregation("_content"))};a.getMinHeight=function(e,t){return this.DEFAULT_MIN_HEIGHT};a.isCompact=function(e){var t=e,n=e.getParent();if(!e.getDomRef()&&n&&n.isA("sap.f.ICard")){t=n}return t.getDomRef()?.closest(".sapUiSizeCompact")?.classList.contains("sapUiSizeCompact")};return a});
+//# sourceMappingURL=BaseContentRenderer.js.map

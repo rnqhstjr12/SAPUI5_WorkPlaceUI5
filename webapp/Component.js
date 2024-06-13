@@ -50,7 +50,7 @@ sap.ui.define([
 
                 // enable routing
                 this.getRouter().initialize();
-
+                sap.ushell.bootstrap("local");
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
             },
