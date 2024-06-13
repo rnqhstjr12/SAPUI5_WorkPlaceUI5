@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +12,15 @@
             height: 100%;
         }
     </style>
+    <script src="https://sapui5.hana.ondemand.com/resources/sap/ushell/utils/workpage/WorkPageVizInstantiation.js" ></script>
+    <script src="https://sapui5.hana.ondemand.com/resources/sap/ushell/utils/workpage/WorkPageHost.js"></script>
+    <script src="https://sapui5.hana.ondemand.com/resources/sap/ushell/ui/launchpad/VizInstanceCdm.js"></script>
+    <script src="resources/sap/ushell_abap/bootstrap/abap.js"></script>
+    <script src="/sap/public/bc/ui5_ui5/resources/sap/ushell_abap/bootstrap/abap.js"></script>
     <script
         id="sap-ui-bootstrap"
         src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+        data-sap-ui-libs="sap.f,sap.m,sap.tnt,sap.ui.core,sap.suite.ui.generic.template,sap.ui.comp,sap.ui.generic.app,sap.ui.table,sap.ushell"
         data-sap-ui-theme="sap_horizon"
         data-sap-ui-resourceroots='{
             "project1": "./"
@@ -22,9 +30,6 @@
         data-sap-ui-async="true"
         data-sap-ui-frameOptions="trusted"
     ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
-        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body class="sapUiBody sapUiSizeCompact" id="content">
     <div

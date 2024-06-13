@@ -1,7 +1,0 @@
-/*!
- * OpenUI5
- * (c) Copyright 2009-2024 SAP SE or an SAP affiliate company.
- * Licensed under the Apache License, Version 2.0 - see LICENSE.txt.
- */
-sap.ui.define(["sap/f/CardRenderer","sap/ui/integration/library"],function(e,r){"use strict";var a={TYPE:"/sap.card/type",APP_ID:"/sap.app/id"};var t=r.CardDesign;var i=r.CardPreviewMode;return e.extend("sap.ui.integration.widgets.CardRenderer",{apiVersion:2,renderContainerAttributes:function(r,n){e.renderContainerAttributes.apply(this,arguments);r.class("sapUiIntCard");var s=n._oCardManifest;if(s&&s.get(a.TYPE)&&s.get(a.TYPE).toLowerCase()==="analytical"){r.class("sapUiIntCardAnalytical")}if(n.getCardFooter()&&n.getCardFooter().getVisible()){r.class("sapUiIntCardWithFooter")}if(n.getDesign()===t.Transparent){r.class("sapFCardTransparent")}if(n.getPreviewMode()===i.Abstract){r.class("sapFCardPreview")}r.class("sapUiIntCard"+n.getDisplayVariant());if(s&&s.get(a.APP_ID)){r.attr("data-sap-ui-card-id",s.get(a.APP_ID))}},renderContentSection:function(r,a){var t=a.getAggregation("_filterBar");if(t){r.renderControl(t)}e.renderContentSection.apply(this,arguments)},renderFooterSection:function(e,r){var a=r.getAggregation("_footer");if(a){e.renderControl(a)}}})});
-//# sourceMappingURL=CardRenderer.js.map

@@ -1,7 +1,0 @@
-/*!
- * OpenUI5
- * (c) Copyright 2009-2024 SAP SE or an SAP affiliate company.
- * Licensed under the Apache License, Version 2.0 - see LICENSE.txt.
- */
-sap.ui.define(["sap/m/library","sap/base/strings/capitalize","sap/ui/core/InvisibleRenderer","sap/ui/core/Lib"],function(e,r,s,n){"use strict";var a=n.getResourceBundleFor("sap.m");var t=5;var i={apiVersion:2};i.render=function(e,r){var n=r.getId(),i=r.getPageNumber(),o=r.getPageCount(),l,p;if(o<=1||!r.getVisible()){s.render(e,r,r.TagName);return}e.openStart("div",r).class("sapUiIntPaginator").openEnd();e.openStart("div").class("sapMCrslControls").openEnd();e.openStart("div").class("sapMCrslControlsContainer").openEnd();this._renderArrow(e,r,"previous");e.openStart("div",n+"-pageIndicator");if(o<t){e.class("sapMCrslBulleted").openEnd();for(l=0;l<o;l++){e.openStart("span").accessibilityState({role:"img",label:a.getText("CAROUSEL_POSITION",[l+1,o])});e.attr("data-slide",l+1);if(l===i){e.class("sapMCrslActive")}e.openEnd().close("span")}}else{e.class("sapMCrslNumeric").openEnd();p=a.getText("CAROUSEL_PAGE_INDICATOR_TEXT",[i+1,o]);e.openStart("span",n+"-"+"slide-number").openEnd().text(p).close("span")}e.close("div");this._renderArrow(e,r,"next");e.close("div").close("div").close("div")};i._renderArrow=function(e,s,n){e.openStart("div").class("sapMCrsl"+r(n.slice(0,4))).openEnd();e.openStart("div").class("sapMCrslArrowInner").openEnd();e.renderControl(s._getNavigationArrow(n==="previous"?"prev":"next"));e.close("div").close("div")};return i},true);
-//# sourceMappingURL=PaginatorRenderer.js.map

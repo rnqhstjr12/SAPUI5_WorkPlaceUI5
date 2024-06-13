@@ -1,1 +1,0 @@
-this.RGBColor=RGBColor;

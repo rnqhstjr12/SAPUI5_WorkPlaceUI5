@@ -59,6 +59,19 @@ sap.ui.define([
 
         var ValueState, CONFIGURATION_LEVELS, MIN_GRID_COLUMN_WIDTH, MAX_GRID_COLUMN_WIDTH, STEP_SIZE;
         var MAX_COLUMNS_PER_ROW, LoadState, InvisibleMessageMode, CardPreviewMode, aVisualizations;
+        
+        /**
+         * Controller of the WorkPageBuilder view.
+         *
+         * @param {string} sId Controller id
+         * @param {object} oParams Controller parameters
+         * @class
+         * @assigns sap.ui.core.mvc.Controller
+         * @private
+         * @since 1.99.0
+         * @alias sap.ushell.components.workPageBuilder.controller.WorkPages
+         */
+        
         return Controller.extend("project1.controller.app", {
             /** @lends sap.ushell.components.workPageBuilder.controller.WorkPageBuilder.prototype */
             onInit: async function () {
