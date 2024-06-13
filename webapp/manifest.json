@@ -15,18 +15,27 @@
       "version": "1.13.6",
       "toolsId": "3f413f55-2d2c-4512-9bcd-0645279ef3aa"
     },
+    "dataSources": {
+      "mainService": {
+          "uri": "Northwind/V4/Northwind/Northwind.svc/Customers",
+          "type": "OData",
+          "settings": {
+              "odataVersion": "4.0"
+          }
+      }
+    },
     "crossNavigation": {
       "inbounds": {
-          "intent1": {
-              "signature": {
-                  "parameters": {},
-                  "additionalParameters": "allowed"
-              },
-              "semanticObject": "project1",
-              "action": "display",
-              "title": "WorkPlaceUI5",
-              "icon": "sap-icon://map"
-          }
+        "intent1": {
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          },
+          "semanticObject": "project1",
+          "action": "display",
+          "title": "WorkPlaceUI5",
+          "icon": "sap-icon://map"
+        }
       }
     }
   },

@@ -84,6 +84,8 @@ sap.ui.define([
 
                 this.test = await this.get("https://services.odata.org/northwind/northwind.svc/Customers/$count");
                 console.log(this.test)
+                this.test2 = await this.get("Northwind/V4/Northwind/Northwind.svc/Customers");
+                console.log(this.test2)
             },
 
             onDataCheck: function (oEvent) {
@@ -105,6 +107,7 @@ sap.ui.define([
                                     shortTitle: "테스트 shortTitle " + i,
                                     subTitle: "테스트용 서브타이틀 " + i,
                                     info: "테스트용 정보 " + i,
+                                    number: 1123
                                 },
                                 "sap.ui": {
                                     icons: {
@@ -112,10 +115,6 @@ sap.ui.define([
                                     },
                                 },
                                 "sap.flp": {
-                                    // target: {
-                                    //   type: "URL",
-                                    //   url: "https://fiorilaunchpad.sap.com/sites#lunch-menu&/favorites/?language=de"
-                                    // },
                                     // 타일의 타입
                                     type: "tile",
                                     vizOptions: {
@@ -134,6 +133,9 @@ sap.ui.define([
                                     target: {
                                         semanticObject: "Action", // "Object", "Action", "Display", "Edit", "Navigate" 등 들어갈수 있음
                                         action: "toappnavsample",
+                                        // type: "URL",
+                                        // url: "https://fiorilaunchpad.sap.com/sites#lunch-menu&/favorites/?language=de"
+
                                     },
                                     indicatorDataSource: {
                                         // dataSource: "https://services.odata.org",
