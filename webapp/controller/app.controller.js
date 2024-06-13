@@ -90,6 +90,7 @@ sap.ui.define([
 
             onDataCheck: function (oEvent) {
                 console.log(aVisualizations);
+                console.log(this.oComponent.getMetaData());
             },
 
             __dummyData: function () {
@@ -139,7 +140,7 @@ sap.ui.define([
                                     },
                                     indicatorDataSource: {
                                         // dataSource: "https://services.odata.org",
-                                        path: "https://services.odata.org/northwind/northwind.svc/Customers/$count",
+                                        path: "Northwind/V4/Northwind/Northwind.svc/Customers/$count",
                                         refresh: 10,
                                     },
                                     descriptorResources: {
