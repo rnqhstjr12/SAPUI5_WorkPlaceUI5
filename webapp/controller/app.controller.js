@@ -87,6 +87,80 @@ sap.ui.define([
                 localStorage.setItem("workpageData", JSON.stringify(oData));
             },
 
+            __dummyCardData: function () {
+                let aDummy = [];
+
+                for (var j = 0; j < 1; j++) {
+                    aDummy.push({
+                        id: "test-card-app-" + j,
+                        type: "sap.card",
+                        descriptor: {
+                            value: {
+                                "sap.app": {
+                                    id: "test-card-app-" + j,
+                                    title: "테스트 카드 title " + j,
+                                    shortTitle: "테스트 카드 shortTitle " + j,
+                                    subTitle: "테스트 카드 subtitle " + j,
+                                    info: "테스트 카드 정보 " + j
+                                },
+                                "sap.card": {
+                                    type: "List",
+                                    configuration: {
+                                        destinations: {
+                                            Northwind: {
+                                                name: "Northwind",
+                                                defaultUrl: "/"
+                                            }
+                                        },
+                                        parameters: {
+                                            title: {
+                                                value: "상품 번호"
+                                            },
+                                            subTitle: {
+                                                value: "원"
+                                            },
+                                        }
+                                    },
+                                    data: {
+                                        request: {
+                                            url: "{{destinations.Northwind}}/northwind/northwind.svc/Order_Details",
+                                            withCredentials: true
+                                        },
+                                        path: "/value"
+                                    },
+                                    designtime: "dt/configuration",
+                                    header: {
+                                        title: "테스트 타이틀",
+                                        subTitle: "테스트 서브타이틀",
+                                        icon: {
+                                            src: "sap-icon://desktop-mobile"
+                                        },
+                                        status: {
+                                            text: "테스트중"
+                                        }
+                                    },
+                                    content: {
+                                        item: {
+                                            title: "상품번호 {ProductID}",
+                                            description: "상품 수량 {Quantity}",
+                                            icon: {
+                                                src: "sap-icon://product"
+                                            },
+                                            info: {
+                                                value: "{Quantity }",
+                                                state: "{= ${Quantity } > 10 ? 'Success' : 'Warning' }"
+                                            }
+                                        },
+                                    }
+                                },
+                            }
+                        }
+                    });
+                }
+
+                return aDummy;
+            },
+
             __dummyTileData: function () {
                 let ttest = this.test;
                 let aDummy = []
@@ -167,11 +241,14 @@ sap.ui.define([
                 InvisibleMessageMode = coreLibrary.InvisibleMessageMode;
                 CardPreviewMode = integrationLibrary.CardPreviewMode;
                 aVisualizations = WorkPageBuilderData.visualizations.nodes;
-                let aDummy = this.__dummyTileData();
-                aDummy.forEach(element => {
+                let aTileDummy = this.__dummyTileData();
+                aTileDummy.forEach(element => {
                     aVisualizations.push(element);
                 });
-                
+                let aCardDummy = this.__dummyCardData();
+                aCardDummy.forEach(element => {
+                    aVisualizations.push(element);
+                })
                 // this._tileSet();
 
                 this.oWorkPageBuilderAccessibility = new WorkPageBuilderAccessibility();
@@ -249,9 +326,7 @@ sap.ui.define([
 
             },
 
-            __dummyCardData: function () {
-                
-            },
+            
 
             _tileSet: async function () { // 미리 불러올 tile
                 const sUrl = "/workplaceUI5/workplaceUI5_widget_list"
