@@ -48,6 +48,14 @@ sap.ui.define([
                 // call the base component's init function
                 UIComponent.prototype.init.apply(this, arguments);
 
+
+                // if (sap.ushell && sap.ushell.Container) {
+                //     sap.ushell.Container.getServiceAsync("UserInfo").then(function (oUserInfoService) {
+                //         oUserInfoService.getId().then(function (sUserId) {
+                //             console.log("User ID: " + sUserId);
+                //         });
+                //     });
+                // }
                 // enable routing
                 this.getRouter().initialize();
                 // set the device model

@@ -15,7 +15,8 @@
         enableScrolling="false"
         showHeader="true">
         <headerContent>
-            <OverflowToolbar>
+            <Toolbar>
+                <ToolbarSpacer/>
                 <Label text="Edit Mode"/>
                 <Switch change=".toggleEditMode" state="false"/>
                 <Label text="Preview Mode"/>
@@ -25,7 +26,7 @@
                 <Label text="Toggle Footer"/>
                 <Switch change=".toggleFooter" state="false" id="toggleFooter" enabled="false"/>
                 <Button text="DataCheck" press="onDataCheck"/>
-            </OverflowToolbar>
+            </Toolbar>
         </headerContent>
 
         <core:ComponentContainer
