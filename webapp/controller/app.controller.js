@@ -78,151 +78,148 @@ sap.ui.define([
                 this._globalVarSet();
                 this._viewDataSet();
                 // this._VisualizationSet();
-                console.log(JSON.parse(localStorage.getItem("workpageData")));
             },
 
             onDataCheck: function (oEvent) {
-                console.log(aVisualizations);
                 let oData = this.oComponent.getPageData();
+                console.log(oData);
                 localStorage.setItem("workpageData", JSON.stringify(oData));
             },
 
-            __dummyCardData: function () {
-                let aDummy = [];
+            // __dummyCardData: function () {
+            //     let aDummy = [];
 
-                for (var j = 0; j < 1; j++) {
-                    aDummy.push({
-                        id: "test-card-app-" + j,
-                        type: "sap.card",
-                        descriptor: {
-                            value: {
-                                "sap.app": {
-                                    id: "test-card-app-" + j,
-                                    title: "테스트 카드 title " + j,
-                                    shortTitle: "테스트 카드 shortTitle " + j,
-                                    subTitle: "테스트 카드 subtitle " + j,
-                                    info: "테스트 카드 정보 " + j
-                                },
-                                "sap.card": {
-                                    type: "List",
-                                    configuration: {
-                                        destinations: {
-                                            Northwind: {
-                                                name: "Northwind",
-                                                defaultUrl: "/"
-                                            }
-                                        },
-                                        parameters: {
-                                            title: {
-                                                value: "상품 번호"
-                                            },
-                                            subTitle: {
-                                                value: "원"
-                                            },
-                                        }
-                                    },
-                                    data: {
-                                        request: {
-                                            url: "{{destinations.Northwind}}/northwind/northwind.svc/Order_Details",
-                                            withCredentials: true
-                                        },
-                                        path: "/value"
-                                    },
-                                    designtime: "dt/configuration",
-                                    header: {
-                                        title: "테스트 타이틀",
-                                        subTitle: "테스트 서브타이틀",
-                                        icon: {
-                                            src: "sap-icon://desktop-mobile"
-                                        },
-                                        status: {
-                                            text: "테스트중"
-                                        }
-                                    },
-                                    content: {
-                                        item: {
-                                            title: "상품번호 {ProductID}",
-                                            description: "상품 수량 {Quantity}",
-                                            icon: {
-                                                src: "sap-icon://product"
-                                            },
-                                            info: {
-                                                value: "{Quantity }",
-                                                state: "{= ${Quantity } > 10 ? 'Success' : 'Warning' }"
-                                            }
-                                        },
-                                    }
-                                },
-                            }
-                        }
-                    });
-                }
+            //     for (var j = 0; j < 1; j++) {
+            //         aDummy.push({
+            //             id: "test-card-app-" + j,
+            //             type: "sap.card",
+            //             descriptor: {
+            //                 value: {
+            //                     "sap.app": {
+            //                         id: "test-card-app-" + j,
+            //                         title: "테스트 카드 title " + j,
+            //                         shortTitle: "테스트 카드 shortTitle " + j,
+            //                         subTitle: "테스트 카드 subtitle " + j,
+            //                         info: "테스트 카드 정보 " + j
+            //                     },
+            //                     "sap.card": {
+            //                         type: "List",
+            //                         configuration: {
+            //                             destinations: {
+            //                                 Northwind: {
+            //                                     name: "Northwind"
+            //                                 }
+            //                             },
+            //                             parameters: {
+            //                                 title: {
+            //                                     value: "상품 번호"
+            //                                 },
+            //                                 subTitle: {
+            //                                     value: "원"
+            //                                 },
+            //                             }
+            //                         },
+            //                         data: {
+            //                             request: {
+            //                                 url: "{{destinations.Northwind}}/northwind/northwind.svc/Order_Details",
+            //                                 withCredentials: true
+            //                             },
+            //                             path: "/value"
+            //                         },
+            //                         designtime: "dt/configuration",
+            //                         header: {
+            //                             title: "테스트 타이틀",
+            //                             subTitle: "테스트 서브타이틀",
+            //                             icon: {
+            //                                 src: "sap-icon://desktop-mobile"
+            //                             },
+            //                             status: {
+            //                                 text: "테스트중"
+            //                             }
+            //                         },
+            //                         content: {
+            //                             item: {
+            //                                 title: "상품번호 {ProductID}",
+            //                                 description: "상품 수량 {Quantity}",
+            //                                 icon: {
+            //                                     src: "sap-icon://product"
+            //                                 },
+            //                                 info: {
+            //                                     value: "{Quantity }",
+            //                                     state: "{= ${Quantity } > 10 ? 'Success' : 'Warning' }"
+            //                                 }
+            //                             },
+            //                         }
+            //                     },
+            //                 }
+            //             }
+            //         });
+            //     }
 
-                return aDummy;
-            },
+            //     return aDummy;
+            // },
 
-            __dummyTileData: function () {
-                let ttest = this.test;
-                let aDummy = []
-                for (var i = 0; i < 5; i++) {
-                    aDummy.push({
-                        id: "test-tile-app-" + i,
-                        type: "sap.ushell.DynamicAppLauncher",
-                        descriptor: {
-                            value: {
-                                "sap.app": {
-                                    id: "test-tile-app-" + i,
-                                    title: "테스트용 타일 " + i,
-                                    shortTitle: "테스트 shortTitle " + i,
-                                    subTitle: "테스트용 서브타이틀 " + i,
-                                    info: "테스트용 정보 " + i,
-                                },
-                                "sap.ui": {
-                                    icons: {
-                                        icon: "sap-icon://decline",
-                                    },
-                                },
-                                "sap.flp": {
-                                    // 타일의 타입
-                                    type: "tile",
-                                    vizOptions: {
-                                        displayFormats: {
-                                            supported: [
-                                                // 지원 가능한 타입 (compact는 적용이 되지않았음)
-                                                "standard",
-                                                "standardWide",
-                                                "flat",
-                                                "flatWide",
-                                                "compact",
-                                            ],
-                                            default: "standard",
-                                        },
-                                    },
-                                    target: {
-                                        semanticObject: "Action", // "Object", "Action", "Display", "Edit", "Navigate" 등 들어갈수 있음
-                                        action: "toappnavsample",
-                                        // type: "URL",
-                                        // url: "https://fiorilaunchpad.sap.com/sites#lunch-menu&/favorites/?language=de"
+            // __dummyTileData: function () {
+            //     let aDummy = []
+            //     for (var i = 0; i < 5; i++) {
+            //         aDummy.push({
+            //             id: "test-tile-app-" + i,
+            //             type: "sap.ushell.DynamicAppLauncher",
+            //             descriptor: {
+            //                 value: {
+            //                     "sap.app": {
+            //                         id: "test-tile-app-" + i,
+            //                         title: "테스트용 타일 " + i,
+            //                         shortTitle: "테스트 shortTitle " + i,
+            //                         subTitle: "테스트용 서브타이틀 " + i,
+            //                         info: "테스트용 정보 " + i,
+            //                     },
+            //                     "sap.ui": {
+            //                         icons: {
+            //                             icon: "sap-icon://decline",
+            //                         },
+            //                     },
+            //                     "sap.flp": {
+            //                         // 타일의 타입
+            //                         type: "tile",
+            //                         vizOptions: {
+            //                             displayFormats: {
+            //                                 supported: [
+            //                                     // 지원 가능한 타입 (compact는 적용이 되지않았음)
+            //                                     "standard",
+            //                                     "standardWide",
+            //                                     "flat",
+            //                                     "flatWide",
+            //                                     "compact",
+            //                                 ],
+            //                                 default: "standard",
+            //                             },
+            //                         },
+            //                         target: {
+            //                             semanticObject: "Action", // "Object", "Action", "Display", "Edit", "Navigate" 등 들어갈수 있음
+            //                             action: "toappnavsample",
+            //                             // type: "URL",
+            //                             // url: "https://fiorilaunchpad.sap.com/sites#lunch-menu&/favorites/?language=de"
 
-                                    },
-                                    indicatorDataSource: {
-                                        // dataSource: "https://services.odata.org",
-                                        path: "Northwind/V4/Northwind/Northwind.svc/Customers/$count",
-                                        refresh: 10,
-                                    },
-                                    descriptorResources: {
-                                        // 기본 경로
-                                        baseUrl: "", // 데이터를 가져올 경로
-                                        descriptorPath: "", // 이동할 경로
-                                    },
-                                },
-                            }
-                        },
-                    });
-                }
+            //                         },
+            //                         indicatorDataSource: {
+            //                             // dataSource: "https://services.odata.org",
+            //                             path: "Northwind/V4/Northwind/Northwind.svc/Customers/$count",
+            //                             refresh: 10,
+            //                         },
+            //                         descriptorResources: {
+            //                             // 기본 경로
+            //                             baseUrl: "", // 데이터를 가져올 경로
+            //                             descriptorPath: "", // 이동할 경로
+            //                         },
+            //                     },
+            //                 }
+            //             },
+            //         });
+            //     }
 
-                return aDummy;
-            },
+            //     return aDummy;
+            // },
 
             _globalVarSet: async function () {
                 // this._test();
@@ -241,105 +238,643 @@ sap.ui.define([
                 InvisibleMessageMode = coreLibrary.InvisibleMessageMode;
                 CardPreviewMode = integrationLibrary.CardPreviewMode;
                 aVisualizations = WorkPageBuilderData.visualizations.nodes;
-                let aTileDummy = this.__dummyTileData();
-                aTileDummy.forEach(element => {
-                    aVisualizations.push(element);
-                });
-                let aCardDummy = this.__dummyCardData();
-                aCardDummy.forEach(element => {
-                    aVisualizations.push(element);
-                })
                 // this._tileSet();
 
                 this.oWorkPageBuilderAccessibility = new WorkPageBuilderAccessibility();
                 this.oWorkPageVizInstantiation = await WorkPageVizInstantiation.getInstance();
             },
 
-            _VisualizationSet: async function () {
-                aVisualizations = [];
-                this._tileSet();
+            __testSetLocalStorage: function () {
+                let oTile = this.__setTileData();
+                let oCard = this.__setCardData();
+                const oData = [];
+                oTile.forEach(item => {
+                    oData.push({
+                        id: item.id,
+                        src: JSON.stringify(item),
+                        type: "tile"
+                    })
+                });
+                oCard.forEach(item => {
+                    oData.push({
+                        id: item.id,
+                        src: JSON.stringify(item),
+                        type: "card"
+                    })
+                })
+                console.log(oData);
+                localStorage.setItem("Visualizations", JSON.stringify(oData));
+            },
 
-                const oData = {
-                    visualizations: {
-                        node: aVisualizations
+            __setCardData: function () {
+                let oCard = [];
+
+                oCard.push({
+                    id: "card-0",
+                    type: "sap.card",
+                    descriptor: {
+                        value: {
+                            "sap.app": {
+                                id: "card-0",
+                                title: "테스트 카드 title",
+                                shortTitle: "테스트 카드 shortTitle",
+                                subTitle: "테스트 카드 subtitle",
+                                info: "테스트 카드 정보"
+                            },
+                            "sap.card": {
+                                type: "List",
+                                configuration: {
+                                    destinations: {
+                                        Northwind: {
+                                            name: "Northwind"
+                                        }
+                                    },
+                                    parameters: {
+                                        title: {
+                                            value: "상품 번호"
+                                        },
+                                        subTitle: {
+                                            value: "원"
+                                        },
+                                    }
+                                },
+                                data: {
+                                    request: {
+                                        url: "{{destinations.Northwind}}/northwind/northwind.svc/Order_Details?$top=3",
+                                        withCredentials: true
+                                    },
+                                    path: "/value"
+                                },
+                                designtime: "dt/configuration",
+                                header: {
+                                    title: "테스트 타이틀",
+                                    subTitle: "테스트 서브타이틀",
+                                    icon: {
+                                        src: "sap-icon://desktop-mobile"
+                                    },
+                                    status: {
+                                        text: "테스트중"
+                                    }
+                                },
+                                content: {
+                                    item: {
+                                        title: "상품번호ㅁㄴㄹ {ProductID}",
+                                        description: "상품 수량ㅁㄴㅇㄹ {Quantity}",
+                                        icon: {
+                                            src: "sap-icon://product"
+                                        },
+                                        info: {
+                                            value: "{Quantity }",
+                                            state: "{= ${Quantity } > 10 ? 'Success' : 'Warning' }"
+                                        }
+                                    },
+                                }
+                            },
+                        }
+                    }
+                })
+
+                oCard.push({
+                    id: "card-1",
+                    type: "sap.card",
+                    descriptor: {
+                        value: {
+                            "sap.ui": {
+                                icons: {
+                                    icon: "sap-icon://full-stacked-column-chart"
+                                },
+                                technology: "UI5"
+                            },
+                            "sap.app": {
+                                id: "card.explorer.stacked.column.card",
+                                info: "Additional information about this Card",
+                                tags: {
+                                    keywords: [
+                                        "Analytical",
+                                        "Card",
+                                        "Stacked Column",
+                                        "Sample"
+                                    ]
+                                },
+                                type: "card",
+                                title: "카드 테스트중",
+                                subTitle: "서브타이틀",
+                                shortTitle: "shortTitle 테스트중",
+                                description: "테스트 카드",
+                                applicationVersion: {
+                                    version: "1.0.0"
+                                }
+                            },
+                            _version: "1.14.0",
+                            "sap.card": {
+                                type: "Analytical",
+                                header: {
+                                    data: {
+                                        json: {
+                                            n: "0",
+                                            u: "%",
+                                            trend: "Up",
+                                            valueColor: "Good"
+                                        }
+                                    },
+                                    type: "Numeric",
+                                    title: "{parameters>/title/value}",
+                                    details: "{parameters>/details/value}",
+                                    subTitle: "{parameters>/subTitle/value}",
+                                    icon: {
+                                        src: "sap-icon://desktop-mobile"
+                                    },
+                                    mainIndicator: {
+                                        unit: "{u}",
+                                        state: "{valueColor}",
+                                        trend: "{trend}",
+                                        number: "{n}"
+                                    },
+                                    sideIndicators: [
+                                        {
+                                            unit: "%",
+                                            title: "Target",
+                                            number: "85"
+                                        },
+                                        {
+                                            unit: "%",
+                                            title: "Deviation",
+                                            number: "15"
+                                        }
+                                    ],
+                                    unitOfMeasurement: "%"
+                                },
+                                content: {
+                                    data: {
+                                        json: {
+                                            list: [
+                                                {
+                                                    Cost: 230000,
+                                                    Week: "Mar",
+                                                    Cost1: 24800.63,
+                                                    Cost2: 205199.37,
+                                                    Cost3: 199999.37,
+                                                    Budget: 210000,
+                                                    Target: 500000,
+                                                    Revenue: 78
+                                                },
+                                                {
+                                                    Cost: 238000,
+                                                    Week: "Apr",
+                                                    Cost1: 99200.39,
+                                                    Cost2: 138799.61,
+                                                    Cost3: 200199.37,
+                                                    Budget: 224000,
+                                                    Target: 500000,
+                                                    Revenue: 80
+                                                },
+                                                {
+                                                    Cost: 221000,
+                                                    Week: "May",
+                                                    Cost1: 70200.54,
+                                                    Cost2: 150799.46,
+                                                    Cost3: 80799.46,
+                                                    Budget: 238000,
+                                                    Target: 500000,
+                                                    Revenue: 82
+                                                },
+                                                {
+                                                    Cost: 280000,
+                                                    Week: "Jun",
+                                                    Cost1: 158800.73,
+                                                    Cost2: 121199.27,
+                                                    Cost3: 108800.46,
+                                                    Budget: 252000,
+                                                    Target: 500000,
+                                                    Revenue: 91
+                                                },
+                                                {
+                                                    Cost: 325000,
+                                                    Week: "Jul",
+                                                    Cost1: 237200.74,
+                                                    Cost2: 87799.26,
+                                                    Cost3: 187799.26,
+                                                    Budget: 294000,
+                                                    Target: 600000,
+                                                    Revenue: 95
+                                                }
+                                            ]
+                                        },
+                                        path: "/list"
+                                    },
+                                    feeds: [
+                                        {
+                                            uid: "categoryAxis",
+                                            type: "Dimension",
+                                            values: [
+                                                "Weeks"
+                                            ]
+                                        },
+                                        {
+                                            uid: "valueAxis",
+                                            type: "Measure",
+                                            values: [
+                                                "Revenue"
+                                            ]
+                                        }
+                                    ],
+                                    measures: [
+                                        {
+                                            name: "Revenue",
+                                            value: "{Revenue}"
+                                        },
+                                        {
+                                            name: "Cost"
+                                        }
+                                    ],
+                                    chartType: "stacked_column",
+                                    dimensions: [
+                                        {
+                                            name: "Weeks",
+                                            value: "{Week}"
+                                        }
+                                    ],
+                                    chartProperties: {
+                                        title: {
+                                            text: "Utilization Projection",
+                                            alignment: "left"
+                                        },
+                                        plotArea: {
+                                            dataLabel: {
+                                                visible: false,
+                                                showTotal: true
+                                            }
+                                        },
+                                        valueAxis: {
+                                            title: {
+                                                visible: false
+                                            }
+                                        },
+                                        legendGroup: {
+                                            position: "bottom",
+                                            alignment: "topLeft"
+                                        },
+                                        categoryAxis: {
+                                            title: {
+                                                visible: false
+                                            }
+                                        }
+                                    }
+                                },
+                                configuration: {
+                                    parameters: {
+                                        title: {
+                                            label: "Title",
+                                            value: "Digital Practice"
+                                        },
+                                        subTitle: {
+                                            label: "Subtitle",
+                                            value: "Current and Forecasted Utilization"
+                                        },
+                                        details: {
+                                            label: "Details",
+                                            value: "Based on planned project dates"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
-                    workPage: {
-                        id: "cep-standard-workpage",
+                    configurations: [{
+                        id: "conf_viz_0",
+                        level: "PG",
+                        settings: {
+                            value: {
+                                "/sap.card/configuration/parameters/title/value": "Digital Practice (PG - Viz)"
+                            },
+                            schemaVersion: "3.2.0"
+                        }
+                    },
+                        {
+                            id: "conf_viz_1",
+                            level: "CO",
+                            settings: {
+                                value: {
+                                    "/sap.card/configuration/parameters/title/value": "Digital Practice (CO - Viz)"
+                                },
+                                schemaVersion: "3.2.0"
+                            }
+                        }],
+                    descriptorResources: {
+                        baseUrl: "",
+                        descriptorPath: ""
+                    }
+                })
+
+                return oCard;
+            },
+            
+            __setTileData: function () {
+                const tile = [
+                    {
+                        id: "tile-0",
+                        type: "sap.ushell.DynamicAppLauncher"
+                    },
+                    {
+                        id: "tile-1",
+                        type: "sap.ushell.DynamicAppLauncher"
+                    },
+                    {
+                        id: "tile-2",
+                        type: "sap.ushell.DynamicAppLauncher"
+                    },
+                    {
+                        id: "tile-3",
+                        type: "sap.ushell.DynamicAppLauncher"
+                    },
+                ];
+                
+                const sap_app = [
+                    {
+                        id: "tile-0",
+                        title: "일정",
+                        shortTitle: "2024년06월14일 ",
+                        subTitle: "일정 서브타이틀",
+                        info: "일정관리",
+                    },
+                    {
+                        id: "tile-1",
+                        title: "업무",
+                        shortTitle: "개발",
+                        subTitle: "업무 서브타이틀",
+                        info: "업무",
+                    },
+                    {
+                        id: "tile-2",
+                        title: "이슈",
+                        shortTitle: "이슈사항",
+                        subTitle: "이슈 서브타이틀",
+                        info: "이슈사항",
+                    },
+                    {
+                        id: "tile-3",
+                        title: "회사",
+                        shortTitle: "jelink",
+                        subTitle: "제이링크",
+                        info: "(주)제이링크",
+                    },
+                ]
+
+                const sap_ui = [
+                    {
+                        id: "tile-0",
+                        icon_seq: 0,
+                    },
+                    {
+                        id: "tile-1",
+                        icon_seq: 1,
+                    },
+                    {
+                        id: "tile-2",
+                        icon_seq: 2,
+                    },
+                    {
+                        id: "tile-3",
+                        icon_seq: 3,
+                    },
+                ]
+
+                const sap_flp = [
+                    {
+                        id: "tile-0",
+                        type: "tile",
+                        displayFormats_default: "standard",
+                        target_semanticObject: "Action",
+                        target_action: "toappnavsample",
+                        indicatorDataSource_path: "Northwind/V4/Northwind/Northwind.svc/Customers/$count",
+                        indicatorDataSource_refresh: 10,
+                        descriptorResources_baseUrl: "",
+                        descriptorResources_descriptorPath: "",
+                    },
+                    {
+                        id: "tile-1",
+                        type: "tile",
+                        displayFormats_default: "standardWide",
+                        target_semanticObject: "Action",
+                        target_action: "toappnavsample",
+                        indicatorDataSource_path: "Northwind/V4/Northwind/Northwind.svc/Employees/$count",
+                        indicatorDataSource_refresh: 10,
+                        descriptorResources_baseUrl: "",
+                        descriptorResources_descriptorPath: "",
+                    },
+                    {
+                        id: "tile-2",
+                        type: "tile",
+                        displayFormats_default: "flat",
+                        target_semanticObject: "Action",
+                        target_action: "toappnavsample",
+                        indicatorDataSource_path: "Northwind/V4/Northwind/Northwind.svc/Categories/$count",
+                        indicatorDataSource_refresh: 10,
+                        descriptorResources_baseUrl: "",
+                        descriptorResources_descriptorPath: "",
+                    },
+                    {
+                        id: "tile-3",
+                        type: "tile",
+                        displayFormats_default: "flatWide",
+                        target_semanticObject: "Action",
+                        target_action: "toappnavsample",
+                        indicatorDataSource_path: "Northwind/V4/Northwind/Northwind.svc/Territories/$count",
+                        indicatorDataSource_refresh: 10,
+                        descriptorResources_baseUrl: "",
+                        descriptorResources_descriptorPath: "",
+                    },
+                ]
+
+                const icons = [
+                    {
+                        seq: 0,
+                        icon: "sap-icon://accelerated"
+                    },
+                    {
+                        seq: 1,
+                        icon: "sap-icon://accept"
+                    },
+                    {
+                        seq: 2,
+                        icon: "sap-icon://accidental-leave"
+                    },
+                    {
+                        seq: 3,
+                        icon: "sap-icon://accessibility"
+                    },
+                ]
+
+                let oTile = [];
+                tile.forEach(tileItem => {
+                    let app;
+                    let ui;
+                    let flp;
+                    let icon;
+
+                    sap_app.forEach(appItem => {
+                        if (tileItem.id === appItem.id) {
+                            app = appItem
+                            return;
+                        }
+                    });
+                    sap_ui.forEach(uiItem => {
+                        if (tileItem.id === uiItem.id) {
+                            ui = uiItem
+                            return;
+                        }
+                    });
+                    sap_flp.forEach(flpItem => {
+                        if (tileItem.id === flpItem.id) {
+                            flp = flpItem
+                            return;
+                        }
+                    });
+                    icons.forEach(iconItem => {
+                        if (ui.icon_seq === iconItem.seq) {
+                            icon = iconItem
+                            return;
+                        }
+                    });
+
+                    oTile.push({
+                        id: tileItem.id,
+                        type: tileItem.type,
                         descriptor: {
                             value: {
-                                title: "CEP Standard WorkPage",
-                                description: "",
-                            },
-                            schemaVersion: "3.2.0",
-                        },
-                        rows: [
-                            {
-                                id: "row0",
-                                configurations: [],
-                                descriptor: {
-                                    value: {
-                                        title: "First Section: Tiles",
-                                    },
-                                    schemaVersion: "3.2.0",
+                                "sap.app": {
+                                    id: app.id,
+                                    title: app.title,
+                                    shortTitle: app.shortTitle,
+                                    subTitle: app.subTitle,
+                                    info: app.info,
                                 },
-                                columns: [
-                                    {
-                                        id: "row0_col0",
-                                        descriptor: {
-                                            value: {
-                                                columnWidth: 12,
-                                            },
-                                            schemaVersion: "3.2.0",
-                                        },
-                                        configurations: [],
-                                        cells: [
-                                            {
-                                                id: "row0_col0_cell0",
-                                                descriptor: {
-                                                    value: {
-                                                        mode: "Section",
-                                                    },
-                                                    schemaVersion: "3.2.0",
-                                                },
-                                                configurations: [],
-                                                widgets: [
-                                                    {
-                                                        id: "dynamic_tile_0",
-                                                        tenantId: "a12ff5b4-f542-4fd0-ae52-319bddd789a5",
-                                                        instanceId:
-                                                            "1d59c4d7-5985-4f21-ad3c-1ac66bf14d2a",
-                                                        configurations: [],
-                                                        visualization: {
-                                                            id: "test 0",
-                                                        },
-                                                    },
-                                                ],
-                                            },
-                                        ],
+                                "sap.ui": {
+                                    icons: {
+                                        icon: icon.icon,
                                     },
-                                ]
+                                },
+                                "sap.flp": {
+                                    type: flp.type,
+                                    vizOptions: {
+                                        displayFormats: {
+                                            supported: [
+                                                "standard",
+                                                "standardWide",
+                                                "flat",
+                                                "flatWide",
+                                                "compact",
+                                            ],
+                                            default: flp.displayFormats_default,
+                                        },
+                                    },
+                                    target: {
+                                        semanticObject: flp.target_semanticObject,
+                                        action: flp.target_action,
+                                    },
+                                    indicatorDataSource: {
+                                        path: flp.indicatorDataSource_path,
+                                        refresh: flp.indicatorDataSource_refresh,
+                                    },
+                                    descriptorResources: {
+                                        baseUrl: flp.descriptorResources_baseUrl,
+                                        descriptorPath: flp.descriptorResources_descriptorPath,
+                                    },
+                                },
                             }
-                        ]
-                    }
-                }
+                        },
+                    })
 
+                });
 
+                return oTile;
             },
+
+            // _VisualizationSet: async function () {
+            //     aVisualizations = [];
+            //     this._tileSet();
+
+            //     const oData = {
+            //         visualizations: {
+            //             node: aVisualizations
+            //         },
+            //         workPage: {
+            //             id: "cep-standard-workpage",
+            //             descriptor: {
+            //                 value: {
+            //                     title: "CEP Standard WorkPage",
+            //                     description: "",
+            //                 },
+            //                 schemaVersion: "3.2.0",
+            //             },
+            //             rows: [
+            //                 {
+            //                     id: "row0",
+            //                     configurations: [],
+            //                     descriptor: {
+            //                         value: {
+            //                             title: "First Section: Tiles",
+            //                         },
+            //                         schemaVersion: "3.2.0",
+            //                     },
+            //                     columns: [
+            //                         {
+            //                             id: "row0_col0",
+            //                             descriptor: {
+            //                                 value: {
+            //                                     columnWidth: 12,
+            //                                 },
+            //                                 schemaVersion: "3.2.0",
+            //                             },
+            //                             configurations: [],
+            //                             cells: [
+            //                                 {
+            //                                     id: "row0_col0_cell0",
+            //                                     descriptor: {
+            //                                         value: {
+            //                                             mode: "Section",
+            //                                         },
+            //                                         schemaVersion: "3.2.0",
+            //                                     },
+            //                                     configurations: [],
+            //                                     widgets: [
+            //                                         {
+            //                                             id: "dynamic_tile_0",
+            //                                             tenantId: "a12ff5b4-f542-4fd0-ae52-319bddd789a5",
+            //                                             instanceId:
+            //                                                 "1d59c4d7-5985-4f21-ad3c-1ac66bf14d2a",
+            //                                             configurations: [],
+            //                                             visualization: {
+            //                                                 id: "test 0",
+            //                                             },
+            //                                         },
+            //                                     ],
+            //                                 },
+            //                             ],
+            //                         },
+            //                     ]
+            //                 }
+            //             ]
+            //         }
+            //     }
+
+
+            // },
 
             
 
-            _tileSet: async function () { // 미리 불러올 tile
-                const sUrl = "/workplaceUI5/workplaceUI5_widget_list"
-                await this.get(sUrl).then(async (oResult) => {
-                    console.log(oResult.value);
-                    let aResult = oResult.value;
-                    aResult.forEach(result => {
-                        aVisualizations.push(JSON.parse(result.obj));
-                    });
-                })
-            },
+            // _tileSet: async function () { // 미리 불러올 tile
+            //     const sUrl = "/workplaceUI5/workplaceUI5_widget_list"
+            //     await this.get(sUrl).then(async (oResult) => {
+            //         console.log(oResult.value);
+            //         let aResult = oResult.value;
+            //         aResult.forEach(result => {
+            //             aVisualizations.push(JSON.parse(result.obj));
+            //         });
+            //     })
+            // },
 
-            _cardSet: async function () { // 미리 불러올 card
+            // _cardSet: async function () { // 미리 불러올 card
                 // const sUrl = "/workplaceUI5/workplaceUI5_widget_list"
                 // await this.get(sUrl).then(async (oResult) => {
                 //   console.log(oResult.value);
@@ -348,20 +883,20 @@ sap.ui.define([
                 //     aVisualizations.push(JSON.parse(result.obj));
                 //   });
                 // })
-            },
+            // },
 
-            _test: async function () {
-                const dummy = this.__dummyTileData();
-                const sUrl = "/workplaceUI5/WidgetInfo"
-                for (let i = 0; i < dummy.length; i++) {
+            // _test: async function () {
+            //     const dummy = this.__dummyTileData();
+            //     const sUrl = "/workplaceUI5/WidgetInfo"
+            //     for (let i = 0; i < dummy.length; i++) {
 
-                    const data = {
-                        visualization_id: "test " + i,
-                        object_string: JSON.stringify(dummy[i])
-                    }
-                    await this.post(sUrl, data);
-                }
-            },
+            //         const data = {
+            //             visualization_id: "test " + i,
+            //             object_string: JSON.stringify(dummy[i])
+            //         }
+            //         await this.post(sUrl, data);
+            //     }
+            // },
 
             _viewDataSet: function () {
                 var oWorkPage = this.byId("workpagesBuilder");
@@ -384,9 +919,9 @@ sap.ui.define([
                     showFooter: false,
                     showPageTitle: true,
                     data: {
-                        workPage: loadData.workPage,
+                        workPage: loadData === null ? null : loadData.workPage,
                         visualizations: [],
-                        usedVisualizations: loadData.usedVisualizations
+                        usedVisualizations: loadData === null ? [] : loadData.usedVisualizations
                     }
                 });
                 // this._ViewData();
@@ -404,8 +939,17 @@ sap.ui.define([
             },
 
 
+            setWidgetData: function () {
+                let Visualizations = JSON.parse(localStorage.getItem("Visualizations"));
+                Visualizations.forEach(viz => {
+                    WorkPageBuilderData.visualizations.nodes.push(JSON.parse(viz.src));
+                });
+            },
+
 
             workPageBuilderComponentCreated: function (oEvent) {
+                this.__testSetLocalStorage();
+                this.setWidgetData();
                 this.oComponent = oEvent.getParameter("component");
 
                 this.oComponent.setNavigationDisabled(true);
@@ -413,9 +957,21 @@ sap.ui.define([
                 this.oComponent.attachEvent("visualizationFilterApplied", this.getVisualizations, this);
 
                 if (localStorage.getItem("workpageData")) {
-                    WorkPageBuilderData.workPage = JSON.parse(localStorage.getItem("workpageData")).workPage;
+                    let loadWorkPageData = JSON.parse(localStorage.getItem("workpageData"));
+                    console.log(loadWorkPageData.workPage);
+                    let Visualizations = JSON.parse(localStorage.getItem("Visualizations"));
+                    loadWorkPageData.workPage.usedVisualizations.nodes.forEach(usedItem => {
+                        Visualizations.forEach(vizItem => {
+                            let viz = JSON.parse(vizItem.src);
+                            if (usedItem.id === viz.id) {
+                                usedItem.descriptor = viz.descriptor;
+                                return;
+                            }
+                        })
+                    });
+                    
+                    WorkPageBuilderData.workPage = loadWorkPageData.workPage;
                 }
-                console.log(WorkPageBuilderData);
                 console.log(WorkPageBuilderData.workPage);
                 this.oComponent.setPageData(WorkPageBuilderData);
             },
@@ -425,7 +981,7 @@ sap.ui.define([
                 var iTop = oEvent.getParameter("pagination").top;
                 var aTypes = oEvent.getParameter("types") || [];
                 var sSearchTerm = oEvent.getParameter("search");
-
+                let aVisualizations = WorkPageBuilderData.visualizations.nodes;
                 if (aTypes.length > 0) {
                     aVisualizations = aVisualizations.filter(function (oViz) {
                         return aTypes.indexOf(oViz.type) > -1;
